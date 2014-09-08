@@ -1,4 +1,4 @@
-odoo_addons_v7
+odoo_addons
 ==============
 
-Addons for Odoo/OpenERP 7
+Addons for Odoo/OpenERP by Joaquin Gutierrez
