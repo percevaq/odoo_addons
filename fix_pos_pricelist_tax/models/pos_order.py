@@ -9,8 +9,8 @@ class PosOrderLine(models.Model):
     _inherit = 'pos.order.line'
 
     @api.multi
-    def onchange_product_id(self, pricelist, product_id, qty=0,
-                            partner_id=False):
+    def onchange_product_id(
+            self, pricelist, product_id, qty=0, partner_id=False):
         result = super(PosOrderLine, self).onchange_product_id(
             pricelist=pricelist, product_id=product_id, qty=qty,
             partner_id=partner_id)

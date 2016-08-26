@@ -26,7 +26,7 @@
     'sequence': 1,
     'author': "Joaquin Gutierrez Pedrosa (www.gutierrezweb.es)",
     'web': "www.gutierrezweb.es",
-    'summary': 'Fix tax in order',
+    'summary': 'Fix tax in pos order',
     'depends': [
         'pos_pricelist',
     ],
