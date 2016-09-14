@@ -21,8 +21,9 @@
 
 {
     'name': 'Fix POS Pricelist Tax',
-    'version': '8.0.0.1',
+    'version': '8.0.1.0.0',
     'category': 'Point Of Sale',
+    'license': 'LGPL-3',
     'sequence': 1,
     'author': "Joaquin Gutierrez Pedrosa (www.gutierrezweb.es)",
     'web': "www.gutierrezweb.es",
@@ -39,4 +40,5 @@
     'installable': True,
     'application': False,
     'auto_install': False,
+
 }
