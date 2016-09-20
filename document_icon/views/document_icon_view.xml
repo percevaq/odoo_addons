@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="document_directory_content_type_view_form" model="ir.ui.view">
+            <field name="name">document.directory.content.type.view.form</field>
+            <field name="model">document.directory.content.type</field>
+            <field name="arch" type="xml">
+                <form string="Document MineType">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                                <field name="mimetype"/>
+                                <field name="icon"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="document_directory_content_type_view_tree" model="ir.ui.view">
+            <field name="name">document.directory.content.type.view.tree</field>
+            <field name="model">document.directory.content.type</field>
+            <field name="arch" type="xml">
+                <tree string="Document MineType">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="mimetype"/>
+                    <field name="icon"/>
+                </tree>
+            </field>
+        </record>
+        <record id="document_directory_content_type_action" model="ir.actions.act_window">
+            <field name="name">Document MineType</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">document.directory.content.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add file extension for document system
+                </p>
+                <p>
+                    Add file extension, icon relative url for visualization
+                </p>
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_document_file_form" model="ir.ui.view">
+            <field name="name">ir.attachment</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='url']" position="before">
+                    <field name="file_type_icon"/>
+                    <field name="file_type"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_document_file_kanban" model="ir.ui.view">
+            <field name="name">ir.attachment kanban</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="mail.view_document_file_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[contains(@class, 'oe_attachment')]" position="replace">
+                    <div class="oe_attachment">
+                        <div t-if="record.file_type_icon.value != ['gif-file-format','jpg-image-file-format','png-file-extension-interface-symbol']">
+                            <img t-att-src="'/document_icon/static/src/img/png/' + record.file_type_icon.value + '.png'"/>
+                        </div>
+                        <div t-if="record.file_type_icon.value == ['gif-file-format','jpg-image-file-format','png-file-extension-interface-symbol']">
+                            <img t-att-src="kanban_image('ir.attachment', 'datas', record.id.value)"/>
+                        </div>
+                        <div t-if="record.file_type_icon.value and record.url.value">
+                            <img t-att-src="record.url.value"/>
+                        </div>
+                        <div class="oe_name">
+                            <field name="name"/>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem id="document_directory_content_type_menu"
+                  name="File type"
+                  parent="document.menu_document_management_configuration"
+                  action="document_directory_content_type_action"
+                  sequence="21"/>
+    </data>
+</openerp>
