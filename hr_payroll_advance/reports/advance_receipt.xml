@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="report_payslip_advance_receipt"
+                model="hr.payslip.advance"
+                string="Payslip Advance Receipt"
+                file="hr_payroll_advance.payslip_advance_receipt"
+                name="hr_payroll_advance.payslip_advance_receipt"
+                report_type="qweb-pdf"
+                usage="receipt"/>
+
+        <record id="hr_payroll_advance.report_payslip_advance_receipt" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="report.paperformat_euro"/>
+        </record>
+
+        <template id="payslip_advance_receipt_document">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="row mt32">
+                        <div class="col-xs-12">
+                            <br/>
+                            <p class="text-center">Advance Payslip</p>
+                            <h1 class="text-center">
+                                <span t-field="o.employee_id.name"/>
+                            </h1>
+                            <p class="text-center">
+                                <span t-if="o.employee_id.identification_id">
+                                    <span>with identification</span>
+                                    <span t-field="o.employee_id.identification_id"/>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <br/>
+                            <p class="text-center">
+                                <span>Generated to</span>
+                                <span t-field="o.date"/>
+                            </p>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p class="text-center">
+                                <em>Employee signature:</em>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="text-center">
+                                <em>Supervisor signature:</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-5">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-center">www.gutierrezweb.es</p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="payslip_advance_receipt">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'employee_id.user_id.lang', 'hr_payroll_advance.payslip_advance_receipt_document')"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>
