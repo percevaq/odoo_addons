@@ -88,7 +88,7 @@ class HrPaySlipRun(models.Model):
                     'bank_id': bank_id.id,
                     'communication': slip_id.name,
                     'name': line_id.name,
-                    'order_id': order_id.id,
+                    'payment_order_id': order_id.id,
                     'amount_currency': line_id.credit,
                     'currency': line_id.currency_id.id or
                     order_id.company_id.currency_id.id,

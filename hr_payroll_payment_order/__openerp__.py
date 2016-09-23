@@ -21,7 +21,7 @@
 {
     'name': 'Hr Payroll Payment Order',
     'version': '8.0.1.0.1',
-    'category': '',
+    'category': 'Human Resources',
     'sequence': 36,
     'author': 'Joaquin Gutierrez',
     'website': 'http://www.gutierrezweb.es',
