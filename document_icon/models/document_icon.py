@@ -5,7 +5,7 @@
 
 import os.path
 import logging
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
 
 
 _log = logging.getLogger(__name__)
