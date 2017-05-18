@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_sale_dashboard"
+              name="Portal My Home : DashBoard" inherit_id="website_portal_sale.portal_my_home_sale" priority="16">
+        <xpath expr="//div[contains(@class,'o_my_home_content')]" position="replace">
+            <div class="o_my_home_content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-shopping-basket fa-5x"/>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <t t-if="quotation_count">
+                                            <p class='announcement-heading'><t t-esc="quotation_count"/></p>
+                                            <p class="announcement-text">Quotations</p>
+                                        </t>
+                                        <t t-if="not quotation_count">
+                                            <p class='announcement-heading'>0</p>
+                                            <p class="announcement-text">Quotations</p>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/my/quotes">
+                                <div class="panel-footer announcement-bottom">
+                                    <div class="row">
+                                        <div class="col-xs-6">Quotes</div>
+                                        <div class="col-xs-6 text-right">
+                                            <i class="fa fa-arrow-circle-right"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-file-text-o fa-5x"/>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <t t-if="order_count">
+                                            <p class='announcement-heading'><t t-esc="order_count"/></p>
+                                            <p class="announcement-text">Orders</p>
+                                        </t>
+                                        <t t-if="not order_count">
+                                            <p class='announcement-heading'>0</p>
+                                            <p class="announcement-text">Orders</p>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/my/orders">
+                                <div class="panel-footer announcement-bottom">
+                                    <div class="row">
+                                        <div class="col-xs-6">Orders</div>
+                                        <div class="col-xs-6 text-right">
+                                            <i class="fa fa-arrow-circle-right"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-usd fa-5x"/>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <t t-if="invoice_count">
+                                            <p class='announcement-heading'><t t-esc="quotation_count"/></p>
+                                            <p class="announcement-text">Invoices</p>
+                                        </t>
+                                        <t t-if="not invoice_count">
+                                            <p class='announcement-heading'>0</p>
+                                            <p class="announcement-text">Invoices</p>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/my/invoices">
+                                <div class="panel-footer announcement-bottom">
+                                    <div class="row">
+                                        <div class="col-xs-6">Invoices</div>
+                                        <div class="col-xs-6 text-right">
+                                            <i class="fa fa-arrow-circle-right"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

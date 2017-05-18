@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="jar" model="ir.attachment.mimetype">
+        <field name="code">.jar</field>
+        <field name="name">Java Archive</field>
+        <field name="mime_type">application/java-archive</field>
+        <field name="icon">jar-file-format.png</field>
+    </record>
+    <record id="class" model="ir.attachment.mimetype">
+        <field name="code">.class</field>
+        <field name="name">Java Bytecode File</field>
+        <field name="mime_type">application/java-vm</field>
+        <field name="icon">class-file-format-variant.png</field>
+    </record>
+    <record id="js" model="ir.attachment.mimetype">
+        <field name="code">.js</field>
+        <field name="name">JavaScript</field>
+        <field name="mime_type">application/javascript</field>
+        <field name="icon">js-file-format-symbol.png</field>
+    </record>
+    <record id="mp4" model="ir.attachment.mimetype">
+        <field name="code">.mp4</field>
+        <field name="name">MPEG4</field>
+        <field name="mime_type">application/mp4</field>
+        <field name="icon">mp4-file-format-symbol.png</field>
+    </record>
+    <record id="doc" model="ir.attachment.mimetype">
+        <field name="code">.doc</field>
+        <field name="name">Microsoft Word</field>
+        <field name="mime_type">application/msword</field>
+        <field name="icon">doc-file-format-symbol.png</field>
+    </record>
+    <record id="bin" model="ir.attachment.mimetype">
+        <field name="code">.bin</field>
+        <field name="name">Binary Data</field>
+        <field name="mime_type">application/octet-stream</field>
+        <field name="icon">bin-file-format.png</field>
+    </record>
+    <delete id="pdf" model="ir.attachment.mimetype"/>
+    <record id="pdf" model="ir.attachment.mimetype">
+        <field name="code">.pdf</field>
+        <field name="name">Adobe Portable Document Format</field>
+        <field name="mime_type">application/pdf</field>
+        <field name="icon">pdf-file-format-symbol.png</field>
+    </record>
+    <record id="cer" model="ir.attachment.mimetype">
+        <field name="code">.cer</field>
+        <field name="name">Internet Public Key Infrastructure - Certificate</field>
+        <field name="mime_type">application/pkix-cert</field>
+        <field name="icon">cer-file-format.png</field>
+    </record>
+    <record id="ai" model="ir.attachment.mimetype">
+        <field name="code">.ai</field>
+        <field name="name">PostScript</field>
+        <field name="mime_type">application/postscript</field>
+        <field name="icon">ai-file-format-symbol.png</field>
+    </record>
+    <record id="rtf" model="ir.attachment.mimetype">
+        <field name="code">.rtf</field>
+        <field name="name">Rich Text Format</field>
+        <field name="mime_type">application/rtf</field>
+        <field name="icon">rtf-icon-format.png</field>
+    </record>
+    <record id="apk" model="ir.attachment.mimetype">
+        <field name="code">.apk</field>
+        <field name="name">Android Package Archive</field>
+        <field name="mime_type">application/vnd.android.package-archive</field>
+        <field name="icon">apk-file-format.png</field>
+    </record>
+    <record id="kml" model="ir.attachment.mimetype">
+        <field name="code">.kml</field>
+        <field name="name">Google Earth - KML</field>
+        <field name="mime_type">application/vnd.google-earth.kml+xml</field>
+        <field name="icon">kml-file-format-variant.png</field>
+    </record>
+    <record id="kmz" model="ir.attachment.mimetype">
+        <field name="code">.kmz</field>
+        <field name="name">Google Earth - Zipped KML</field>
+        <field name="mime_type">application/vnd.google-earth.kmz</field>
+        <field name="icon">kmz-file-format-symbol.png</field>
+    </record>
+    <record id="cab" model="ir.attachment.mimetype">
+        <field name="code">.cab</field>
+        <field name="name">Microsoft Cabinet File</field>
+        <field name="mime_type">application/vnd.ms-cab-compressed</field>
+        <field name="icon">cab-file-format.png</field>
+    </record>
+    <record id="xls" model="ir.attachment.mimetype">
+        <field name="code">.xls</field>
+        <field name="name">Microsoft Excel</field>
+        <field name="mime_type">application/vnd.ms-excel</field>
+        <field name="icon">xls-file-format-symbol.png</field>
+    </record>
+    <record id="ppt" model="ir.attachment.mimetype">
+        <field name="code">.ppt</field>
+        <field name="name">Microsoft PowerPoint</field>
+        <field name="mime_type">application/vnd.ms-powerpoint</field>
+        <field name="icon">ppt-file-format.png</field>
+    </record>
+    <record id="wps" model="ir.attachment.mimetype">
+        <field name="code">.wps</field>
+        <field name="name">Microsoft Works</field>
+        <field name="mime_type">application/vnd.ms-works</field>
+        <field name="icon">wps-file-format.png</field>
+    </record>
+    <record id="odc" model="ir.attachment.mimetype">
+        <field name="code">.odc</field>
+        <field name="name">OpenDocument Chart</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.chart</field>
+        <field name="icon">odc-file-format-symbol.png</field>
+    </record>
+    <record id="odb" model="ir.attachment.mimetype">
+        <field name="code">.odb</field>
+        <field name="name">OpenDocument Database</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.database</field>
+        <field name="icon">odb-file-format-variant.png</field>
+    </record>
+    <record id="odf" model="ir.attachment.mimetype">
+        <field name="code">.odf</field>
+        <field name="name">OpenDocument Formula</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.formula</field>
+        <field name="icon">odf-file-format-variant.png</field>
+    </record>
+    <record id="odg" model="ir.attachment.mimetype">
+        <field name="code">.odg</field>
+        <field name="name">OpenDocument Graphics</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.graphics</field>
+        <field name="icon">odg-file-format.png</field>
+    </record>
+    <record id="odi" model="ir.attachment.mimetype">
+        <field name="code">.odi</field>
+        <field name="name">OpenDocument Image</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.image</field>
+        <field name="icon">odi-file-format-symbol.png</field>
+    </record>
+    <record id="odp" model="ir.attachment.mimetype">
+        <field name="code">.odp</field>
+        <field name="name">OpenDocument Presentation</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.presentation</field>
+        <field name="icon">odp-file-format-symbol.png</field>
+    </record>
+    <record id="ods" model="ir.attachment.mimetype">
+        <field name="code">.ods</field>
+        <field name="name">OpenDocument Spreadsheet</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.spreadsheet</field>
+        <field name="icon">ods-file-format-symbol.png</field>
+    </record>
+    <record id="odt" model="ir.attachment.mimetype">
+        <field name="code">.odt</field>
+        <field name="name">OpenDocument Text</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.text</field>
+        <field name="icon">odt-file-format-symbol.png</field>
+    </record>
+    <record id="odt" model="ir.attachment.mimetype">
+        <field name="code">.odt</field>
+        <field name="name">OpenDocument Text</field>
+        <field name="mime_type">application/vnd.oasis.opendocument.text</field>
+        <field name="icon">odt-file-format.png</field>
+    </record>
+    <record id="pptx" model="ir.attachment.mimetype">
+        <field name="code">.pptx</field>
+        <field name="name">Microsoft Office - OOXML - Presentation</field>
+        <field name="mime_type">application/vnd.openxmlformats-officedocument.presentationml.presentation</field>
+        <field name="icon">pptx-file-format-variant.png</field>
+    </record>
+    <record id="xlsx" model="ir.attachment.mimetype">
+        <field name="code">.xlsx</field>
+        <field name="name">Microsoft Office - OOXML - Spreadsheet</field>
+        <field name="mime_type">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</field>
+        <field name="icon">xlsx-file-format.png</field>
+    </record>
+    <record id="docx" model="ir.attachment.mimetype">
+        <field name="code">.docx</field>
+        <field name="name">Microsoft Office - OOXML - Word Document</field>
+        <field name="mime_type">application/vnd.openxmlformats-officedocument.wordprocessingml.document</field>
+        <field name="icon">docx-file-format.png</field>
+    </record>
+    <record id="pdb" model="ir.attachment.mimetype">
+        <field name="code">.pdb</field>
+        <field name="name">PalmOS Data</field>
+        <field name="mime_type">application/vnd.palm</field>
+        <field name="icon">pdb-file-format-variant.png</field>
+    </record>
+    <record id="rm" model="ir.attachment.mimetype">
+        <field name="code">.rm</field>
+        <field name="name">RealMedia</field>
+        <field name="mime_type">application/vnd.rn-realmedia</field>
+        <field name="icon">rm-file-format.png</field>
+    </record>
+    <record id="wpd" model="ir.attachment.mimetype">
+        <field name="code">.wpd</field>
+        <field name="name">Wordperfect</field>
+        <field name="mime_type">application/vnd.wordperfect</field>
+        <field name="icon">wpd-file-format-symbol.png</field>
+    </record>
+    <record id="7z" model="ir.attachment.mimetype">
+        <field name="code">.7z</field>
+        <field name="name">7-Zip</field>
+        <field name="mime_type">application/x-7z-compressed</field>
+        <field name="icon">7z-file-format-variant.png</field>
+    </record>
+    <record id="torrent" model="ir.attachment.mimetype">
+        <field name="code">.torrent</field>
+        <field name="name">BitTorrent</field>
+        <field name="mime_type">application/x-bittorrent</field>
+        <field name="icon">torrent-file-format.png</field>
+    </record>
+    <record id="vcd" model="ir.attachment.mimetype">
+        <field name="code">.vcd</field>
+        <field name="name">Video CD</field>
+        <field name="mime_type">application/x-cdlink</field>
+        <field name="icon">vcd-file-format-symbol.png</field>
+    </record>
+    <record id="otf" model="ir.attachment.mimetype">
+        <field name="code">.otf</field>
+        <field name="name">OpenType Font File</field>
+        <field name="mime_type">application/x-font-otf</field>
+        <field name="icon">otf-file-format.png</field>
+    </record>
+    <record id="otf" model="ir.attachment.mimetype">
+        <field name="code">.otf</field>
+        <field name="name">OpenType Font File</field>
+        <field name="mime_type">application/x-font-otf</field>
+        <field name="icon">otf-file-format-extension.png</field>
+    </record>
+    <record id="ttf" model="ir.attachment.mimetype">
+        <field name="code">.ttf</field>
+        <field name="name">TrueType Font</field>
+        <field name="mime_type">application/x-font-ttf</field>
+        <field name="icon">ttf-file-format-symbol.png</field>
+    </record>
+    <record id="mdb" model="ir.attachment.mimetype">
+        <field name="code">.mdb</field>
+        <field name="name">Microsoft Access</field>
+        <field name="mime_type">application/x-msaccess</field>
+        <field name="icon">mdb-file-format-symbol.png</field>
+    </record>
+    <record id="exe" model="ir.attachment.mimetype">
+        <field name="code">.exe</field>
+        <field name="name">Microsoft Application</field>
+        <field name="mime_type">application/x-msdownload</field>
+        <field name="icon">exe-file-format-symbol.png</field>
+    </record>
+    <record id="pub" model="ir.attachment.mimetype">
+        <field name="code">.pub</field>
+        <field name="name">Microsoft Publisher</field>
+        <field name="mime_type">application/x-mspublisher</field>
+        <field name="icon">pub-file-format-symbol.png</field>
+    </record>
+    <record id="rar" model="ir.attachment.mimetype">
+        <field name="code">.rar</field>
+        <field name="name">RAR Archive</field>
+        <field name="mime_type">application/x-rar-compressed</field>
+        <field name="icon">rar-file-format.png</field>
+    </record>
+    <record id="swf" model="ir.attachment.mimetype">
+        <field name="code">.swf</field>
+        <field name="name">Adobe Flash</field>
+        <field name="mime_type">application/x-shockwave-flash</field>
+        <field name="icon">swf-file-format-symbol.png</field>
+    </record>
+    <record id="sitx" model="ir.attachment.mimetype">
+        <field name="code">.sitx</field>
+        <field name="name">Stuffit Archive</field>
+        <field name="mime_type">application/x-stuffitx</field>
+        <field name="icon">sitx-file-format-variant.png</field>
+    </record>
+    <record id="tar" model="ir.attachment.mimetype">
+        <field name="code">.tar</field>
+        <field name="name">Tar File (Tape Archive)</field>
+        <field name="mime_type">application/x-tar</field>
+        <field name="icon">tar-file-variant.png</field>
+    </record>
+    <record id="tex" model="ir.attachment.mimetype">
+        <field name="code">.tex</field>
+        <field name="name">TeX</field>
+        <field name="mime_type">application/x-tex</field>
+        <field name="icon">tex-file-format.png</field>
+    </record>
+    <record id="xhtml" model="ir.attachment.mimetype">
+        <field name="code">.xhtml</field>
+        <field name="name">XHTML - The Extensible HyperText Markup Language</field>
+        <field name="mime_type">application/xhtml+xml</field>
+        <field name="icon">xhtml-icon-file-format.png</field>
+    </record>
+    <record id="xml" model="ir.attachment.mimetype">
+        <field name="code">.xml</field>
+        <field name="name">XML - Extensible Markup Language</field>
+        <field name="mime_type">application/xml</field>
+        <field name="icon">xml-file-format-variant.png</field>
+    </record>
+    <record id="dtd" model="ir.attachment.mimetype">
+        <field name="code">.dtd</field>
+        <field name="name">Document Type Definition</field>
+        <field name="mime_type">application/xml-dtd</field>
+        <field name="icon">dtd-file-format-extension.png</field>
+    </record>
+    <record id="zip" model="ir.attachment.mimetype">
+        <field name="code">.zip</field>
+        <field name="name">Zip Archive</field>
+        <field name="mime_type">application/zip</field>
+        <field name="icon">zip-compressed-files-extension.png</field>
+    </record>
+    <record id="zip" model="ir.attachment.mimetype">
+        <field name="code">.zip</field>
+        <field name="name">Zip Archive</field>
+        <field name="mime_type">application/zip</field>
+        <field name="icon">zip-file.png</field>
+    </record>
+    <record id="mid" model="ir.attachment.mimetype">
+        <field name="code">.mid</field>
+        <field name="name">MIDI - Musical Instrument Digital Interface</field>
+        <field name="mime_type">audio/midi</field>
+        <field name="icon">mid-file-format.png</field>
+    </record>
+    <record id="aac" model="ir.attachment.mimetype">
+        <field name="code">.aac</field>
+        <field name="name">Advanced Audio Coding (AAC)</field>
+        <field name="mime_type">audio/x-aac</field>
+        <field name="icon">aac-file-format.png</field>
+    </record>
+    <record id="aif" model="ir.attachment.mimetype">
+        <field name="code">.aif</field>
+        <field name="name">Audio Interchange File Format</field>
+        <field name="mime_type">audio/x-aiff</field>
+        <field name="icon">aif-file-format.png</field>
+    </record>
+    <record id="m3u" model="ir.attachment.mimetype">
+        <field name="code">.m3u</field>
+        <field name="name">M3U (Multimedia Playlist)</field>
+        <field name="mime_type">audio/x-mpegurl</field>
+        <field name="icon">m3u-file-format.png</field>
+    </record>
+    <record id="wma" model="ir.attachment.mimetype">
+        <field name="code">.wma</field>
+        <field name="name">Microsoft Windows Media Audio</field>
+        <field name="mime_type">audio/x-ms-wma</field>
+        <field name="icon">wma-file-format-symbol.png</field>
+    </record>
+    <record id="wav" model="ir.attachment.mimetype">
+        <field name="code">.wav</field>
+        <field name="name">Waveform Audio File Format (WAV)</field>
+        <field name="mime_type">audio/x-wav</field>
+        <field name="icon">wav-file-format-variant.png</field>
+    </record>
+    <record id="bmp" model="ir.attachment.mimetype">
+        <field name="code">.bmp</field>
+        <field name="name">Bitmap Image File</field>
+        <field name="mime_type">image/bmp</field>
+        <field name="icon">bmp-file-format-symbol.png</field>
+    </record>
+    <record id="gif" model="ir.attachment.mimetype">
+        <field name="code">.gif</field>
+        <field name="name">Graphics Interchange Format</field>
+        <field name="mime_type">image/gif</field>
+        <field name="icon">gif-file-format.png</field>
+    </record>
+    <record id="jpg" model="ir.attachment.mimetype">
+        <field name="code">.jpg</field>
+        <field name="name">JPEG Image</field>
+        <field name="mime_type">image/jpeg</field>
+        <field name="icon">jpg-image-file-format.png</field>
+    </record>
+    <record id="jpeg" model="ir.attachment.mimetype">
+        <field name="code">.jpeg</field>
+        <field name="name">JPEG Image</field>
+        <field name="mime_type">image/jpeg</field>
+        <field name="icon">jpg-image-file-format.png</field>
+    </record>
+    <record id="png" model="ir.attachment.mimetype">
+        <field name="code">.png</field>
+        <field name="name">Portable Network Graphics (PNG)</field>
+        <field name="mime_type">image/png</field>
+        <field name="icon">png-file-extension-interface-symbol.png</field>
+    </record>
+    <record id="svg" model="ir.attachment.mimetype">
+        <field name="code">.svg</field>
+        <field name="name">Scalable Vector Graphics (SVG)</field>
+        <field name="mime_type">image/svg+xml</field>
+        <field name="icon">svg-file-format-symbol.png</field>
+    </record>
+    <record id="tiff" model="ir.attachment.mimetype">
+        <field name="code">.tiff</field>
+        <field name="name">Tagged Image File Format</field>
+        <field name="mime_type">image/tiff</field>
+        <field name="icon">tiff-images-file-extension-symbol-for-interface.png</field>
+    </record>
+    <record id="psd" model="ir.attachment.mimetype">
+        <field name="code">.psd</field>
+        <field name="name">Photoshop Document</field>
+        <field name="mime_type">image/vnd.adobe.photoshop</field>
+        <field name="icon">psd-file-format-variant.png</field>
+    </record>
+    <record id="dwg" model="ir.attachment.mimetype">
+        <field name="code">.dwg</field>
+        <field name="name">DWG Drawing</field>
+        <field name="mime_type">image/vnd.dwg</field>
+        <field name="icon">dwg-file-format-variant.png</field>
+    </record>
+    <record id="dxf" model="ir.attachment.mimetype">
+        <field name="code">.dxf</field>
+        <field name="name">AutoCAD DXF</field>
+        <field name="mime_type">image/vnd.dxf</field>
+        <field name="icon">dxf-file-format-symbol.png</field>
+    </record>
+    <record id="ico" model="ir.attachment.mimetype">
+        <field name="code">.ico</field>
+        <field name="name">Icon Image</field>
+        <field name="mime_type">image/x-icon</field>
+        <field name="icon">ico-file-format-variant.png</field>
+    </record>
+    <record id="eml" model="ir.attachment.mimetype">
+        <field name="code">.eml</field>
+        <field name="name">Email Message</field>
+        <field name="mime_type">message/rfc822</field>
+        <field name="icon">eml-file.png</field>
+    </record>
+    <record id="ics" model="ir.attachment.mimetype">
+        <field name="code">.ics</field>
+        <field name="name">iCalendar</field>
+        <field name="mime_type">text/calendar</field>
+        <field name="icon">ics-file-format-symbol.png</field>
+    </record>
+    <record id="css" model="ir.attachment.mimetype">
+        <field name="code">.css</field>
+        <field name="name">Cascading Style Sheets (CSS)</field>
+        <field name="mime_type">text/css</field>
+        <field name="icon">css-file-format-symbol.png</field>
+    </record>
+    <record id="csv" model="ir.attachment.mimetype">
+        <field name="code">.csv</field>
+        <field name="name">Comma-Seperated Values</field>
+        <field name="mime_type">text/csv</field>
+        <field name="icon">csv-file-format-symbol.png</field>
+    </record>
+    <record id="html" model="ir.attachment.mimetype">
+        <field name="code">.html</field>
+        <field name="name">HyperText Markup Language (HTML)</field>
+        <field name="mime_type">text/html</field>
+        <field name="icon">html-file-with-code-symbol.png</field>
+    </record>
+    <record id="txt" model="ir.attachment.mimetype">
+        <field name="code">.txt</field>
+        <field name="name">Text File</field>
+        <field name="mime_type">text/plain</field>
+        <field name="icon">txt-text-file-extension-symbol.png</field>
+    </record>
+    <record id="vcf" model="ir.attachment.mimetype">
+        <field name="code">.vcf</field>
+        <field name="name">vCard</field>
+        <field name="mime_type">text/x-vcard</field>
+        <field name="icon">vcf-file-format-variant.png</field>
+    </record>
+    <record id="3gp" model="ir.attachment.mimetype">
+        <field name="code">.3gp</field>
+        <field name="name">3GP</field>
+        <field name="mime_type">video/3gpp</field>
+        <field name="icon">3gp-file-format-variant.png</field>
+    </record>
+    <record id="3g2" model="ir.attachment.mimetype">
+        <field name="code">.3g2</field>
+        <field name="name">3GP2</field>
+        <field name="mime_type">video/3gpp2</field>
+        <field name="icon">3g2-file-format-symbol.png</field>
+    </record>
+    <record id="mp4" model="ir.attachment.mimetype">
+        <field name="code">.mp4</field>
+        <field name="name">MPEG-4 Video</field>
+        <field name="mime_type">video/mp4</field>
+        <field name="icon">mp4-file-format-symbol.png</field>
+    </record>
+    <record id="flv" model="ir.attachment.mimetype">
+        <field name="code">.flv</field>
+        <field name="name">Flash Video</field>
+        <field name="mime_type">video/x-flv</field>
+        <field name="icon">flv-file-format-symbol.png</field>
+    </record>
+    <record id="m4v" model="ir.attachment.mimetype">
+        <field name="code">.m4v</field>
+        <field name="name">M4v</field>
+        <field name="mime_type">video/x-m4v</field>
+        <field name="icon">m4v-file-format-variant.png</field>
+    </record>
+    <record id="asf" model="ir.attachment.mimetype">
+        <field name="code">.asf</field>
+        <field name="name">Microsoft Advanced Systems Format (ASF)</field>
+        <field name="mime_type">video/x-ms-asf</field>
+        <field name="icon">asf-file-format-variant.png</field>
+    </record>
+    <record id="wmv" model="ir.attachment.mimetype">
+        <field name="code">.wmv</field>
+        <field name="name">Microsoft Windows Media Video</field>
+        <field name="mime_type">video/x-ms-wmv</field>
+        <field name="icon">wmv-file-format-extension.png</field>
+    </record>
+    <record id="avi" model="ir.attachment.mimetype">
+        <field name="code">.avi</field>
+        <field name="name">Audio Video Interleave (AVI)</field>
+        <field name="mime_type">video/x-msvideo</field>
+        <field name="icon">avi-file-format-variant.png</field>
+    </record>
+    <record id="_blank" model="ir.attachment.mimetype">
+        <field name="code">.blank</field>
+        <field name="name">No filetype</field>
+        <field name="mime_type">blank/blank</field>
+        <field name="icon">blank-file.png</field>
+    </record>
+</odoo>

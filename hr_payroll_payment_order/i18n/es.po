@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_payroll_payment_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-16 11:15+0000\n"
+"PO-Revision-Date: 2016-09-16 13:21+0100\n"
+"Last-Translator: Joaquin Gutierrez <joaquin.gutierrez@grupoancana.com>\n"
+"Language-Team: www.gutierrezweb.es <info@gutierrezweb.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: hr_payroll_payment_order
+#: field:hr.payslip.run,account_bank_mode:0
+msgid "Bank Mode"
+msgstr "Cuenta Bancaria"
+
+#. module: hr_payroll_payment_order
+#: selection:hr.payslip.run,account_bank_mode:0
+msgid "By Employee"
+msgstr "Por Empleado"
+
+#. module: hr_payroll_payment_order
+#: help:hr.payslip.run,account_bank_mode:0
+msgid ""
+"By Employee: select bank account by employee data, By Partner: select bank "
+"account by partner associated to employee"
+msgstr ""
+"por empleado: selecciona el banco desde la ficha de empleado , por Partner: "
+"selecciona la cuenta bancaria asociada al usuario del empleado."
+
+#. module: hr_payroll_payment_order
+#: selection:hr.payslip.run,account_bank_mode:0
+msgid "By Partner"
+msgstr "Por Partner"
+
+#. module: hr_payroll_payment_order
+#: view:hr.payslip.run:hr_payroll_payment_order.hr_payslip_run_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: hr_payroll_payment_order
+#: field:hr.payslip.run,date_maturity:0
+msgid "Due date"
+msgstr "Fecha vencimiento"
+
+#. module: hr_payroll_payment_order
+#: view:hr.payslip.run:hr_payroll_payment_order.hr_payslip_run_form
+msgid "Generate Payslips"
+msgstr "Generar nóminas"
+
+#. module: hr_payroll_payment_order
+#: code:addons/hr_payroll_payment_order/models/hr_payroll.py:54
+#, python-format
+msgid "No Payslip Line in process"
+msgstr "no hay lineas de nominas en este proceso"
+
+#. module: hr_payroll_payment_order
+#: view:hr.payslip.run:hr_payroll_payment_order.hr_payslip_run_form
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: hr_payroll_payment_order
+#: field:hr.payslip.run,mode_id:0
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: hr_payroll_payment_order
+#: field:hr.payslip.run,payment_order_id:0
+#: help:hr.payslip.run,payment_order_id:0
+msgid "Payment Order"
+msgstr "Orden de pago"
+
+#. module: hr_payroll_payment_order
+#: model:ir.model,name:hr_payroll_payment_order.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "Lotes de Nóminas"
+
+#. module: hr_payroll_payment_order
+#: help:hr.payslip.run,mode_id:0
+msgid "Please select payment mode"
+msgstr "Selecciona el modo de pago"
+
+#. module: hr_payroll_payment_order
+#: view:hr.payslip.run:hr_payroll_payment_order.hr_payslip_run_form
+msgid "Post"
+msgstr "Asentado"
+
+#. module: hr_payroll_payment_order
+#: help:hr.payslip.run,date_maturity:0
+msgid ""
+"This field is used for payable and receivable journal entries. You can put "
+"the limit date for the payment of this line."
+msgstr ""
+"Este campo se usa para asientos a pagar y a cobrar. Puede introducir la "
+"fecha límite para el pago de esta línea."
+
+#. module: hr_payroll_payment_order
+#: view:hr.payslip.run:hr_payroll_payment_order.hr_payslip_run_form
+msgid "paid"
+msgstr "Pagado"

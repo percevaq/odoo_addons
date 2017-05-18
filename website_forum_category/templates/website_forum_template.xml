@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_frontend" name="website_forum_category assets"
+                  inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                <link rel='stylesheet' href='/website_forum_category/static/src/css/main.css'/>
+            </xpath>
+        </template>
+        <template id="categories" name="forum categories list">
+            <t t-call="website.layout">
+                <div class="container" style="margin-top: 35px">
+                    <div class="page-header page-heading">
+                        <h1 class="text-primary pull-left">Forums</h1>
+                            <ol class="breadcrumb pull-right mt8">
+                                <li>
+                                    <a href="/"><i class="fa fa-home"/></a>
+                                </li>
+                                <li>
+                                    <a href="/forum_categories/">Forums</a>
+                                </li>
+                                <li class="active">List of topics</li>
+                            </ol>
+                        <div class="clearfix"/>
+                    </div>
+                    <h1><p class="lead small">This is the right place to discuss any ideas, critics, feature requests and all the iregarding.</p></h1>
+
+                    <t t-foreach="categories" t-as="category">
+                        <table class="table forum table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="cell-stat"/>
+                                    <th>
+                                        <h3><spam class="text-primary" t-field="category.name"/></h3>
+                                    </th>
+                                    <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
+                                    <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
+                                    <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-bordered">
+                                <t t-foreach="category.forum_ids" t-as="forum">
+                                    <tr>
+                                        <td class="text-center">
+                                            <i class="fa fa-3x fa-comment mb16 text-primary"/>
+                                        </td>
+                                        <td>
+                                            <h4><a t-attf-href="/forum/#{ slug(forum) }"><spam t-field="forum.name"/></a><br/>
+                                                <small><spam t-field="forum.description"/></small>
+                                            </h4>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm">
+                                            <a t-attf-href="/forum/#{ slug(forum) }"><spam t-field="forum.topic_count"/></a>
+                                        </td>
+                                        <td class="text-center hidden-xs hidden-sm">
+                                            <a t-attf-href="/forum/#{ slug(forum) }"><spam t-field="forum.post_count"/></a>
+                                        </td>
+                                        <td class="hidden-xs hidden-sm">
+                                            <t t-if="forum.post_last_id">
+                                                by <a t-attf-href="/forum/#{ slug(forum) }/user/#{forum.post_last_id.create_uid.id}"
+                                                          t-field="forum.post_last_id.create_uid"
+                                                          t-options='{"widget": "contact", "fields": ["name"]}'
+                                                          style="display: inline-block;"/>
+
+                                                <small>
+                                                    <i class="fa fa-clock-o"/><br/>
+                                                    <span t-field="forum.post_last_id.write_date" t-options='{"format":"short"}'/>
+                                                </small>
+                                            </t>
+                                            <t t-if="not forum.post_last_id">
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

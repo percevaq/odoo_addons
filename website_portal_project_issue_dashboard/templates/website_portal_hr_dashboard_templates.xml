@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_project_dashboard"
+              name="Portal My Home : Project DashBoard Issue" inherit_id="website_portal_project_dashboard.portal_my_home_project_dashboard" priority="25">
+        <xpath expr="//div[contains(@name, 'project_dashboard')]" position="inside">
+            <div class="col-lg-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <i class="fa fa-bug fa-5x"/>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <t t-if="issue_count">
+                                    <p class='announcement-heading'><t t-esc="issue_count"/></p>
+                                    <p class="announcement-text">Issues</p>
+                                </t>
+                                <t t-if="not issue_count">
+                                    <p class='announcement-heading'>0</p>
+                                    <p class="announcement-text">Issues</p>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/my/issues">
+                        <div class="panel-footer announcement-bottom">
+                            <div class="row">
+                                <div class="col-xs-6">Issues</div>
+                                <div class="col-xs-6 text-right">
+                                    <i class="fa fa-arrow-circle-right"/>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_project_issue" name="Portal My Home : project entries issues" priority="27"
+              inherit_id="website_project_issue.portal_my_home">
+        <xpath expr="//h3[contains(@class,'page-header')]" position="replace">
+        </xpath>
+    </template>
+
+</odoo>

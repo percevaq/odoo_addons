@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_portal_sale_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-18 09:56+0000\n"
+"PO-Revision-Date: 2017-05-18 11:57+0200\n"
+"Last-Translator: Joaquin Gutierrez <joaquin.gutierrez@grupoancana.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: website_portal_sale_dashboard
+#: model:ir.ui.view,arch_db:website_portal_sale_dashboard.portal_my_home_sale_dashboard
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: website_portal_sale_dashboard
+#: model:ir.ui.view,arch_db:website_portal_sale_dashboard.portal_my_home_sale_dashboard
+msgid "Orders"
+msgstr "Pedidos"
+
+#. module: website_portal_sale_dashboard
+#: model:ir.ui.view,arch_db:website_portal_sale_dashboard.portal_my_home_sale_dashboard
+msgid "Quotations"
+msgstr "Presupuestos"
+
+#. module: website_portal_sale_dashboard
+#: model:ir.ui.view,arch_db:website_portal_sale_dashboard.portal_my_home_sale_dashboard
+msgid "Quotes"
+msgstr "Presupuestos"

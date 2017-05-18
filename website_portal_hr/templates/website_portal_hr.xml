@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" name="website_portal_hr assets" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/website_portal_hr/static/src/css/website_portal_hr.css'/>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_hr" name="Portal layout : hr menu entries" priority="26"
+              inherit_id="website_portal.portal_layout">
+        <xpath expr="//ul[contains(@class,'o_portal_submenu')]" position="inside">
+            <li t-att-class="page_name == 'contract' and 'active' or ''">
+                <a href="/my/hr/contracts">Contracts</a>
+            </li>
+            <li t-att-class="page_name == 'payslip' and 'active' or ''">
+                <a href="/my/hr/payslips">Payslips</a>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_hr" name="Portal My Home : hr entries" priority="26"
+              inherit_id="website_portal.portal_my_home">
+        <xpath expr="//div[contains(@class,'o_my_home_content')]" position="inside">
+            <h3 class="page-header">
+                <a href="/my/hr/contracts">Your Contract
+                    <small class="ml8">
+                        <t t-if="contracts_count">
+                            <span class='badge'><t t-esc="contracts_count"/></span>
+                        </t>
+                        <t t-if="not contracts_count">
+                            There are currently contracts for your account.
+                        </t>
+                    </small>
+                </a>
+            </h3>
+            <h3 class="page-header">
+                <a href="/my/hr/payslips">Your Payslips
+                    <small class="ml8">
+                        <t t-if="payslips_count">
+                            <span class='badge'><t t-esc="payslips_count"/></span>
+                        </t>
+                        <t t-if="not payslips_count">
+                            There are currently no payslips for your account.
+                        </t>
+                    </small>
+                </a>
+            </h3>
+        </xpath>
+    </template>
+
+
+    <template id="contracts" name="Contracts">
+        <t t-call="website_portal.portal_layout">
+            <h3 class="page-header">
+            Your Contract
+            </h3>
+            <div class="panel panel-default">
+                <t t-if="not contracts">
+                    <p>There are currently no contracts in your account.</p>
+                </t>
+                <t t-if="contracts">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="active">
+                                <th colspan="2">#Ref.</th>
+                                <th>From</th>
+                                <th>To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="contracts" t-as="contract">
+                                <tr>
+                                    <td colspan="2">
+                                        <a t-att-href="'/my/hr/contracts/%s' % contract.id">
+                                            <t t-esc="contract.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="contract.date_start"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="contract.date_end">
+                                            <span t-esc="contract.date_end"/>
+                                        </t>
+                                        <t t-if="not contract.date_end">
+                                            <span> - </span>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="contract_details" name="Contract">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="oe_structure">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <ol class="breadcrumb mt8">
+                                    <li>
+                                        <a href="/my/home"><i class="fa fa-home"/></a>
+                                    </li>
+                                    <li>
+                                        <a href="/my/hr/contracts">Contracts</a>
+                                    </li>
+                                    <li>
+                                        <t t-esc="contract.date_start"/>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="optional_placeholder"/>
+                    <div class="container">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>
+                                            Contract:
+                                            <t t-esc="contract.name"/>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="mb8">
+                                    <strong>Date start:</strong>
+                                    <span t-field="contract.date_start" t-field-options='{"widget": "date"}'/>
+                                    <br/>
+                                    <strong>Date end:</strong>
+                                    <span t-field="contract.date_end" t-field-options='{"widget": "date"}'/>
+                                </div>
+                                <div class='row'>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <strong>Contract Type</strong>
+                                        </div>
+                                        <div>
+                                            <t t-esc="contract.type_id.name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <strong>Job Name</strong>
+                                        </div>
+                                        <div>
+                                            <t t-esc="contract.job_id.name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <strong>Files</strong>
+                                        </div>
+                                        <div>
+                                            <t t-foreach="attachments" t-as="file">
+                                                <div class="col-md-3 text-center">
+                                                    <a t-attf-href="/web/content/#{file.id}?download=1"
+                                                       class="btn btn-default btn-lg btn-myaccount-shortcut">
+                                                        <t t-if="file.file_type_icon">
+                                                            <img class="img img-responsive" height="64" width="64"
+                                                                 t-att-src="'/document_icon/static/src/img/png/' + file.file_type_icon "/>
+                                                        </t>
+                                                        <t t-if="not file.file_type_icon">
+                                                            <img class="img img-responsive" height="64" width="64"
+                                                                 src="/document_icon/static/src/img/png/blank-file.png"/>
+                                                        </t>
+                                                    </a>
+                                                    <small><p>
+                                                        <span t-field="file.name"/></p></small>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_structure mb32"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="payslips" name="Payslip">
+        <t t-call="website_portal.portal_layout">
+        <div class="row">
+            <h3 class="page-header">
+                    Your Payroll
+            </h3>
+        </div>
+        <div class="panel panel-default">
+                <t t-if="not payslips">
+                    <p>There are currently no payslip in your account.</p>
+                </t>
+                <t t-if="payslips">
+                    <div class="table-responsive">
+                        <table class="table table-hover o_my_status_table">
+                            <thead>
+                                <tr class="active">
+                                    <th>Num.</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th colspan="2">#Ref</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="payslips" t-as="payslip">
+                                <tr>
+                                    <td>
+                                        <a t-att-href="'/my/hr/payslips/'+str(payslip.id)">
+                                            <t t-esc="payslip.number"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="payslip.date_from"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="payslip.date_to"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <small><span t-esc="payslip.name"/></small>
+                                    </td>
+                                    <td>
+                                        <t t-if="payslip.state == 'draft'">
+                                            <span class="label label-info payroll_label_text_align">
+                                                <i class="fa fa-fw fa-clock-o"/>
+                                                Draft
+                                            </span>
+                                        </t>
+                                        <t t-if="payslip.state == 'verify'">
+                                            <span class="label label-info payroll_label_text_align">
+                                                <i class="fa fa-fw fa-clock-o"/> In preparation</span>
+                                        </t>
+                                        <t t-if="payslip.state == 'done'">
+                                            <span class="label label-default payroll_label_text_align">
+                                                <i class="fa fa-fw fa-check"/> Done</span>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+                <div t-if="pager" class="o_portal_pager text-center">
+                    <t t-call="website.pager"/>
+                </div>
+            </div>
+        </t>
+
+    </template>
+
+    <template id="payslip_details" name="PaySlip">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="oe_structure">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <ol class="breadcrumb mt8">
+                                    <li>
+                                        <a href="/my/home"><i class="fa fa-home"/></a>
+                                    </li>
+                                    <li>
+                                        <a href="/my/hr/payslips">Payslips</a>
+                                    </li>
+                                    <li>
+                                        <span t-field="payslip.date_from" t-field-options='{"widget": "date"}'/>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="optional_placeholder"/>
+                    <div class="container">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>
+                                            PaySlip: <t t-esc="payslip.name"/>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="mb8">
+                                    <strong>Period:</strong>
+                                    <span t-field="payslip.date_from" t-field-options='{"widget": "date"}'/>
+                                    -
+                                    <span t-field="payslip.date_to" t-field-options='{"widget": "date"}'/>
+                                </div>
+                                <div class='row'>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <strong>Employee</strong>
+                                        </div>
+                                        <div>
+                                            <em>Name</em>:
+                                            <t t-esc="payslip.employee_id.name"/>
+                                        </div>
+                                        <div>
+                                            <em>Dpto</em>:
+                                            <t t-esc="payslip.employee_id.department_id.name"/>
+                                        </div>
+                                        <div>
+                                            <em>Job</em>:
+                                            <t t-esc="payslip.employee_id.job_id.name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <strong>Payslip Details</strong>
+                                        </div>
+                                        <div>
+                                            <em>#Ref.</em>:
+                                            <t t-esc="payslip.number"/>
+                                        </div>
+                                        <div>
+                                            <em>Contract</em>:
+                                            <t t-esc="payslip.contract_id.name"/>
+                                        </div>
+                                        <div>
+                                            <em>Compute</em>:
+                                            <t t-esc="payslip.struct_id.name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <strong>Name</strong>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                        <strong>Subtotal</strong>
+                                    </div>
+                                </div>
+                                <t t-foreach="payslip.line_ids" t-as="pl">
+                                    <div class="row">
+                                        <div class="col-md-4 text-left">
+                                            <span t-field="pl.salary_rule_id.name"/>
+                                        </div>
+                                        <div class="col-md-2 text-right">
+                                            <span t-field="pl.amount"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <p><strong>Files</strong></p>
+                                        </div>
+                                        <div>
+                                            <t t-foreach="attachments" t-as="file">
+                                                <div class="col-md-3 text-center">
+                                                    <a t-attf-href="/web/content/#{file.id}?download=1"
+                                                       class="btn btn-default btn-lg btn-myaccount-shortcut">
+                                                        <t t-if="file.file_type_icon">
+                                                            <img class="img img-responsive" height="64" width="64"
+                                                                 t-att-src="'/document_icon/static/src/img/png/%s' % file.file_type_icon"/>
+                                                        </t>
+                                                        <t t-if="not file.file_type_icon">
+                                                            <img class="img img-responsive" height="64" width="64"
+                                                                 src="/document_icon/static/src/img/png/blank-file.png"/>
+                                                        </t>
+                                                    </a>
+                                                    <small><p>
+                                                        <span t-field="file.name"/></p>
+                                                    </small>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_structure mb32"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

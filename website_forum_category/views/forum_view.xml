@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="forum_category_view_form" model="ir.ui.view">
+            <field name="name">forum.category.form</field>
+            <field name="model">forum.category</field>
+            <field name="arch" type="xml">
+                <form string="Category">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group string="Metadata">
+                                <field name="website_meta_title"/>
+                                <field name="website_meta_description"/>
+                                <field name="website_meta_keywords"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="forum_category_view_tree" model="ir.ui.view">
+            <field name="name">forum.category.tree</field>
+            <field name="model">forum.category</field>
+            <field name="arch" type="xml">
+                <tree string="Category">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="forum_category_action" model="ir.actions.act_window">
+            <field name="name">Forum Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">forum.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="forum_category_menu" name="Categories" parent="website_forum.menu_website_forum"
+                  action="forum_category_action" sequence="39"/>
+
+        <record id="view_forum_forum_form" model="ir.ui.view">
+            <field name="name">forum.forum.form</field>
+            <field name="model">forum.forum</field>
+            <field name="inherit_id" ref="website_forum.view_forum_forum_form"/>
+            <field name="arch" type="xml">
+                <field name="default_post_type" position="after">
+                    <field name="category_id"/>
+                    <field name="post_count" readonly="1"/>
+                    <field name="post_last_id" readonly="1"/>
+                    <field name="topic_count" readonly="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
