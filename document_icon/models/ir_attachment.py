@@ -40,9 +40,11 @@ class Attachment(models.Model):
     def _compute_icon(self):
         for document in self:
             if document.mimetype:
-                type_id = self.env['ir.attachment.mimetype'].search([
+                type_id = self.env['ir.attachment.mimetype'].sudo().search([
                     ('mime_type', '=', document.mimetype),
                     ('active', '=', True)])
+                if type_id.ids:
+                    type_id = type_id[0]
             else:
                 type_id = self.env.ref('document_icon._blank')
             document.file_type_icon = type_id and type_id.icon
