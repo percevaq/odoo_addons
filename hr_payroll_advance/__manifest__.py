@@ -22,6 +22,6 @@
         'views/hr_view.xml',
         'reports/advance_receipt.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

@@ -1,0 +1,256 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_payroll_advance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-13 08:18+0000\n"
+"PO-Revision-Date: 2017-09-13 10:30+0200\n"
+"Last-Translator: Joaquin Gutierrez <joaquin@gutierrezweb.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../../../../server/addons\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payslip_advance_receipt_document
+msgid "<em>Employee signature:</em>"
+msgstr "<em>Firma del empleado:</em>"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payslip_advance_receipt_document
+msgid "<em>Supervisor signature:</em>"
+msgstr "<em>Firma del responsable:</em>"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payslip_advance_receipt_document
+msgid "<span>Generated to</span>"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payslip_advance_receipt_document
+msgid "<span>with identification</span>"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.actions.act_window,help:hr_payroll_advance.hr_payslip_advance_action
+msgid "Add advance payroll"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_employee_advance_amount
+msgid "Advance Amount"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_filter
+msgid "Advance Month"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payslip_advance_receipt_document
+msgid "Advance Payslip"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payroll_hr_employee_view_form
+msgid "Advances"
+msgstr "Anticipos"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_amount
+msgid "Amount"
+msgstr "Total"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_name
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_payslip_advance_name
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_filter
+msgid "Code"
+msgstr "Codigo"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_date
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_payslip_advance_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: hr_payroll_advance
+#: selection:hr.payslip.advance,state:0
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_filter
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_form
+msgid "Done"
+msgstr "Realizado"
+
+#. module: hr_payroll_advance
+#: selection:hr.payslip.advance,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: hr_payroll_advance
+#: model:ir.model,name:hr_payroll_advance.model_hr_employee
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_employee_id
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_payslip_advance_employee_id
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_filter
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_filter
+msgid "Group By"
+msgstr "Agrupado por"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_id
+msgid "ID"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_payslip_advance_note
+msgid "Internal notes"
+msgstr "Notas"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_move_id
+msgid "Journal Entry"
+msgstr "Asiento"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_payslip_advance_move_id
+msgid "Link to the automatically generated Journal Items."
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.actions.act_window,help:hr_payroll_advance.hr_payslip_advance_action
+msgid "Management advance payroll for Employee's"
+msgstr "Gestion de anticipos de empleado"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_note
+msgid "Notes"
+msgstr "Notas"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_filter
+msgid "Open"
+msgstr "Abierto"
+
+#. module: hr_payroll_advance
+#: model:ir.actions.act_window,name:hr_payroll_advance.hr_payslip_advance_action
+#: model:ir.model,name:hr_payroll_advance.model_hr_payslip_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_form
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_tree
+msgid "PaySlip Advance"
+msgstr "Anticipo de empleado"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.menu,name:hr_payroll_advance.hr_payroll_advance_menu
+msgid "Payroll Advance"
+msgstr "Anticipo del empleado"
+
+#. module: hr_payroll_advance
+#: model:ir.actions.report.xml,name:hr_payroll_advance.report_payslip_advance_receipt
+msgid "Payslip Advance Receipt"
+msgstr "Recibo"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_employee_advance_ids
+msgid "Payslip advance"
+msgstr "Anticipo de empleado"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_employee_advance_ids
+msgid "Payslip advance list"
+msgstr "Anticipos"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_employee_advance_count
+msgid "Payslips"
+msgstr ""
+
+#. module: hr_payroll_advance
+#: model:ir.actions.act_window,name:hr_payroll_advance.hr_employee_payslip_advance_action
+msgid "Payslips advance"
+msgstr "Anticipos"
+
+#. module: hr_payroll_advance
+#: selection:hr.payslip.advance,state:0
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_form
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: hr_payroll_advance
+#: model:ir.model.fields,field_description:hr_payroll_advance.field_hr_payslip_advance_state
+#: model:ir.model.fields,help:hr_payroll_advance.field_hr_payslip_advance_state
+msgid "Status"
+msgstr "Estado"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_form
+msgid "Terms and conditions..."
+msgstr "Terminos y condiciones"
+
+#. module: hr_payroll_advance
+#: code:addons/hr_payroll_advance/models/hr.py:69
+#: sql_constraint:hr.payslip.advance:0
+#, python-format
+msgid "The code must be unique!"
+msgstr "¡El número debe de ser único!"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.hr_payslip_advance_view_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: hr_payroll_advance
+#: model:ir.ui.view,arch_db:hr_payroll_advance.payslip_advance_receipt_document
+msgid "www.gutierrezweb.es"
+msgstr "www.gutierrezweb.es"

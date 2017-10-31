@@ -15,6 +15,10 @@ class HrPaySlipAdvance(models.Model):
     _name = 'hr.payslip.advance'
     _description = 'PaySlip Advance'
 
+    @api.model
+    def _default_currency(self):
+        return self.env.user.company_id.currency_id
+
     name = fields.Char(
         string='Code',
         required=True,
@@ -32,10 +36,10 @@ class HrPaySlipAdvance(models.Model):
         required=True,
         ondelete='set null',
         default=lambda self: self.env.user.company_id.id)
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('pending', 'Pending'),
-        ('done', 'Done')],
+    state = fields.Selection(
+        selection=[('draft', 'Draft'),
+                   ('pending', 'Pending'),
+                   ('done', 'Done')],
         string='Status',
         index=True,
         readonly=True,
@@ -47,17 +51,14 @@ class HrPaySlipAdvance(models.Model):
         required=True,
         default=fields.Date.today(),
         help="Date")
-    amount = fields.Float(
-        string='Amount',
-        digits_compute=dp.get_precision('Payroll'))
-    move_id = fields.Many2one(
-        comodel_name='account.move',
-        string='Journal Entry',
+    amount = fields.Monetary(
+        string='Amount')
+    currency_id = fields.Many2one(
+        comodel_name='res.currency',
+        string='Currency',
+        required=True,
         readonly=True,
-        index=True,
-        ondelete='restrict',
-        copy=False,
-        help="Link to the automatically generated Journal Items.")
+        default=_default_currency)
     note = fields.Text(
         string='Notes',
         required=False,
@@ -70,7 +71,7 @@ class HrPaySlipAdvance(models.Model):
 
     @api.model
     def create(self, values):
-        if values.get('issue_code', '/') == '/':
+        if values.get('name', '/') == '/':
             values['name'] = self.env['ir.sequence'].get('hr.payslip.advance')
         return super(HrPaySlipAdvance, self).create(values)
 
@@ -116,5 +117,4 @@ class HrPaySlipAdvance(models.Model):
             compute=_compute_advance_count)
         advance_amount = fields.Float(
             string='Advance Amount',
-            compute=_compute_advance_amount,
-            digits_compute=dp.get_precision('Payroll'))
+            compute=_compute_advance_amount)

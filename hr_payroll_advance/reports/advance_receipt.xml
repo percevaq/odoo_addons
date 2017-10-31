@@ -5,8 +5,7 @@
             string="Payslip Advance Receipt"
             file="hr_payroll_advance.payslip_advance_receipt"
             name="hr_payroll_advance.payslip_advance_receipt"
-            report_type="qweb-pdf"
-            usage="receipt"/>
+            report_type="qweb-pdf"/>
 
     <record id="hr_payroll_advance.report_payslip_advance_receipt" model="ir.actions.report.xml">
         <field name="paperformat_id" ref="report.paperformat_euro"/>
@@ -20,12 +19,12 @@
                         <br/>
                         <p class="text-center">Advance Payslip</p>
                         <h1 class="text-center">
-                            <span t-field="o.employee_id.name"/>
+                            <span t-field="doc.employee_id.name"/>
                         </h1>
                         <p class="text-center">
-                            <span t-if="o.employee_id.identification_id">
+                            <span t-if="doc.employee_id.identification_id">
                                 <span>with identification</span>
-                                <span t-field="o.employee_id.identification_id"/>
+                                <span t-field="doc.employee_id.identification_id"/>
                             </span>
                         </p>
                     </div>
@@ -35,7 +34,7 @@
                         <br/>
                         <p class="text-center">
                             <span>Generated to</span>
-                            <span t-field="o.date"/>
+                            <span t-field="doc.date"/>
                         </p>
                         <br/>
                     </div>
@@ -69,8 +68,8 @@
 
     <template id="payslip_advance_receipt">
         <t t-call="report.html_container">
-            <t t-foreach="doc_ids" t-as="doc_id">
-                <t t-raw="translate_doc(doc_id, doc_model, 'employee_id.user_id.lang', 'hr_payroll_advance.payslip_advance_receipt_document')"/>
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="hr_payroll_advance.payslip_advance_receipt_document" t-lang="doc.employee_id.user_id.lang"/>
             </t>
         </t>
     </template>

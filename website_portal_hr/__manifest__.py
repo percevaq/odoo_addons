@@ -5,7 +5,7 @@
 {
     'name': 'Website Portal for Human Resource',
     'category': 'Website',
-    'summary': 'Employee Zone in web FrontEnd',
+    'description': 'Employee Zone in web FrontEnd',
     'version': '10.0.1.0.0',
     'author': 'Ancana Inversiones, S.L.',
     'website': 'https://www.grupoancana.com/',

@@ -27,22 +27,18 @@
                             <field name="employee_id"/>
                         </h1>
                     </div>
-                    <group col="4">
-                        <label for="date" string="Date"/>
-                        <div>
-                            <field name="date" class="oe_inline"/>
-                        </div>
-                        <field name="name"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                        </group>
                     </group>
-                    <group class="oe_subtotal_footer oe_right" colspan="2" name="advance_total">
-                        <div class="oe_subtotal_footer_separator oe_inline">
-                            <label for="amount"/>
-                        </div>
-                        <field name="amount" nolabel="1" class="oe_subtotal_footer_separator"/>
+                    <group>
+                        <field name="note" placeholder="Terms and conditions..."/>
                     </group>
-                    <div class="oe_clear">
-                        <field name="note" class="oe_inline" placeholder="Terms and conditions..."/>
-                    </div>
                 </sheet>
             </form>
         </field>
@@ -66,8 +62,9 @@
         <field name="arch" type="xml">
             <search string="">
                 <field name="name" string="Code"/>
-                <filter string="Open" name="Current" domain="[('state', '=','open')]"/>
-                <filter string="Done" name="Done" domain="[('state', '=','Done')]"/>
+                <filter string="Draft" name="Draft" domain="[('state', '=','draft')]"/>
+                <filter string="Pending" name="Pending" domain="[('state', '=','pending')]"/>
+                <filter string="Done" name="Done" domain="[('state', '=','done')]"/>
                 <separator/>
                 <separator/>
                 <field name="employee_id" string="Employee"/>
@@ -95,7 +92,7 @@
     </record>
     <menuitem id="hr_payroll_advance_menu"
               name="Payroll Advance"
-              parent="hr_payroll.menu_hr_root_payroll"
+              parent="hr_payroll.menu_hr_payroll_root"
               action="hr_payslip_advance_action"
               sequence="17"/>
 
@@ -111,16 +108,16 @@
         <field name="name">hr.employee.view.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field eval="21" name="priority"/>
+        <!--<field eval="21" name="priority"/>-->
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//div[@name='button_box']" position="inside">
                     <button name="%(hr_employee_payslip_advance_action)d"
                             class="oe_stat_button"
-                            icon="fa-eur"
+                            icon="fa-money"
                             type="action"
-                            groups="base.group_hr_user">
-                        <field name="advance_count" widget="statinfo" string="Payslip advances"/>
+                            groups="hr.group_hr_user">
+                        <field name="advance_count" widget="statinfo" string="Advances"/>
                     </button>
                 </xpath>
             </data>
