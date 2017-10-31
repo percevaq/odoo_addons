@@ -6,7 +6,7 @@
             <div class="o_my_home_content">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="panel panel-info">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="panel panel-info">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="panel panel-info">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">

@@ -9,17 +9,17 @@ class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
 
     @api.multi
-    def finalize_invoice_move_lines(self, move_lines):
-        move_lines = super(
-            AccountInvoice, self).finalize_invoice_move_lines(move_lines)
-        for move in move_lines:
-            if move[2]['name'] == '/':
-                if self.type in ('in_invoice', 'in_refund'):
-                    if self.reference:
-                        move[2]['name'] = '%s - %s' % (
-                            self.reference, self.number)
-                    else:
-                        move[2]['name'] = '%s' % self.number
-                else:
-                    move[2]['name'] = '%s' % self.number
-        return move_lines
+    def invoice_validate(self):
+        invoices = super(AccountInvoice, self).invoice_validate()
+        for invoice in self:
+            for move in invoice.move_id:
+                lines = move.line_ids.filtered(
+                    lambda x: x.account_id.internal_type in [
+                        'receivable', 'payable'])
+                for line in lines:
+                    if line.account_id.internal_type == 'receivable':
+                        line.name = '%s' % invoice.number or invoice.ref
+                    if line.account_id.internal_type == 'payable':
+                        line.name = '%s - %s' % (
+                            invoice.reference or '', invoice.number)
+        return invoices

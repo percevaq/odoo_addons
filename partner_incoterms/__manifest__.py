@@ -8,9 +8,9 @@
     'author': 'Joaquin Gutierrez Pedrosa',
     'website': 'http://www.gutierrezweb.es',
     'depends': [
-        'base',
         'purchase',
         'sale',
+        'stock',
     ],
     'category': 'Partner',
     'description': """

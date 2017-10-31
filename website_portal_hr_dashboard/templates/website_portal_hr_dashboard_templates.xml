@@ -5,7 +5,7 @@
         <xpath expr="//h3[contains(@class,'page-header')]" position="replace">
             <div class="row" name="hr_dashboard">
                 <div class="col-lg-4">
-                    <div class="panel panel-info">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6">
@@ -36,18 +36,18 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="panel panel-info">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6">
                                     <i class="fa fa-file-text-o fa-5x"/>
                                 </div>
                                 <div class="col-xs-6 text-right">
-                                    <t t-if="payslips_count">
-                                        <p class='announcement-heading'><t t-esc="payslips_count"/></p>
+                                    <t t-if="payslip_count">
+                                        <p class='announcement-heading'><t t-esc="payslip_count"/></p>
                                         <p class="announcement-text">PaySlips</p>
                                     </t>
-                                    <t t-if="not order_count">
+                                    <t t-if="not payslip_count">
                                         <p class='announcement-heading'>0</p>
                                         <p class="announcement-text">PaySlips</p>
                                     </t>

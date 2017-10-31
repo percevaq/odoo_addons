@@ -4,7 +4,7 @@
               name="Portal My Home : Project DashBoard Issue" inherit_id="website_portal_project_dashboard.portal_my_home_project_dashboard" priority="25">
         <xpath expr="//div[contains(@name, 'project_dashboard')]" position="inside">
             <div class="col-lg-4">
-                <div class="panel panel-info">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">

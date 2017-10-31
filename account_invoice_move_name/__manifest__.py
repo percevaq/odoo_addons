@@ -4,7 +4,7 @@
 
 {
     'name': "Account Invoice move name",
-    'version': "10.0.0.8.0",
+    'version': "10.0.0.9.0",
     'summary': "Account Invoice move name",
     'sequence': 51,
     'category': "Accounting",

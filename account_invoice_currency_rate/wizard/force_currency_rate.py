@@ -15,7 +15,6 @@ class InvoiceForceCurrencyRate(models.TransientModel):
         if self.env.context.get('active_id'):
             invoice = self.env['account.invoice'].browse(
                 self.env.context.get('active_id'))
-
             rate = invoice.currency_id.rate
         return rate
 

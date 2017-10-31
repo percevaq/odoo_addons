@@ -32,7 +32,7 @@ class AccountInvoice(models.Model):
             if self.currency_id != company_currency:
                 currency = self.currency_id.with_context(
                     date=self.date_invoice or fields.Date.context_today(self))
-                if not (line.get('currency_id') and line.get('amount_currency')):
+                if not line.get('currency_id') and line.get('amount_currency'):
                     line['currency_id'] = currency.id
                     line['amount_currency'] = currency.round(line['price'])
                     if self.currency_rate != 0:

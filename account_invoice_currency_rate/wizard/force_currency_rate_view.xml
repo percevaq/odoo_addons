@@ -20,7 +20,6 @@
             </form>
         </field>
     </record>
-
     <record id="action_force_currency_rate" model="ir.actions.act_window">
         <field name="name">Force currency rate</field>
         <field name="type">ir.actions.act_window</field>
@@ -29,5 +28,4 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
-
 </odoo>

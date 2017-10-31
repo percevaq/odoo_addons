@@ -18,7 +18,6 @@
             </xpath>
         </field>
     </record>
-
     <record model="ir.ui.view" id="account_invoice_supplier_form_currency_rate">
         <field name="name">account.invoice.supplier.form.currency_rate</field>
         <field name="model">account.invoice</field>
