@@ -4,7 +4,7 @@
 
 {
     'name': 'Hr Payroll Advance',
-    'version': '10.0.0.1.0',
+    'version': '11.0.0.1.0',
     'category': 'Human Resources',
     'sequence': 36,
     'author': 'Joaquin Gutierrez',
@@ -22,6 +22,6 @@
         'views/hr_view.xml',
         'reports/advance_receipt.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }
