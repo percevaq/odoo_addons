@@ -5,13 +5,14 @@
 
 {
     'name': 'Hr Payroll Advance Account',
-    'version': '10.0.0.1.0',
+    'version': '11.0.0.1.0',
     'category': 'Human Resources',
     'sequence': 36,
+    'summary': 'Payroll advances for employees with Account',
     'author': 'Joaquin Gutierrez',
     'website': 'http://www.gutierrezweb.es',
     'description': """
-        Management advance payroll for employee
+        Management advances payroll for employees with Account
     """,
     'depends': [
         'hr',
@@ -19,7 +20,8 @@
         'hr_payroll_advance',
     ],
     'data': [
+        'views/hr_view.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

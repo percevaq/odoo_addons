@@ -5,10 +5,6 @@
 
 from odoo import models, fields
 
-import logging
-
-_log = logging.getLogger(__name__)
-
 
 class HrPaySlipAdvance(models.Model):
     _inherit = 'hr.payslip.advance'
