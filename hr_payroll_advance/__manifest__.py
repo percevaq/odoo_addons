@@ -7,10 +7,11 @@
     'version': '11.0.0.1.0',
     'category': 'Human Resources',
     'sequence': 36,
+    'summary': 'Payroll advances for employees',
     'author': 'Joaquin Gutierrez',
     'website': 'http://www.gutierrezweb.es',
     'description': """
-    Management advance payroll for employee
+    Management advances payroll for employees
     """,
     'depends': [
         'hr',
@@ -22,6 +23,6 @@
         'views/hr_view.xml',
         'reports/advance_receipt.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

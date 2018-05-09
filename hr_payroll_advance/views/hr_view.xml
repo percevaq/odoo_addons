@@ -37,7 +37,8 @@
                         </group>
                     </group>
                     <group>
-                        <field name="note" placeholder="Terms and conditions..."/>
+                        <field name="note"
+                               placeholder="Terms and conditions..."/>
                     </group>
                 </sheet>
             </form>
@@ -62,15 +63,20 @@
         <field name="arch" type="xml">
             <search string="">
                 <field name="name" string="Code"/>
-                <filter string="Draft" name="Draft" domain="[('state', '=','draft')]"/>
-                <filter string="Pending" name="Pending" domain="[('state', '=','pending')]"/>
-                <filter string="Done" name="Done" domain="[('state', '=','done')]"/>
+                <filter string="Draft" name="Draft"
+                        domain="[('state', '=','draft')]"/>
+                <filter string="Pending" name="Pending"
+                        domain="[('state', '=','pending')]"/>
+                <filter string="Done" name="Done"
+                        domain="[('state', '=','done')]"/>
                 <separator/>
                 <separator/>
                 <field name="employee_id" string="Employee"/>
                 <group expand="0" string="Group By">
-                    <filter string="Employee" name="Employee" context="{'group_by':'employee_id'}"/>
-                    <filter string="Advance Month" domain="[]" context="{'group_by':'date'}"/>
+                    <filter string="Employee" name="Employee"
+                            context="{'group_by':'employee_id'}"/>
+                    <filter string="Advance Month" domain="[]"
+                            context="{'group_by':'date'}"/>
                 </group>
             </search>
         </field>
@@ -97,18 +103,20 @@
               sequence="17"/>
 
     <!-- Inherit Form View hr.employee and Action -->
-    <record id="hr_employee_payslip_advance_action" model="ir.actions.act_window">
+    <record id="hr_employee_payslip_advance_action"
+            model="ir.actions.act_window">
         <field name="res_model">hr.payslip.advance</field>
         <field name="name">Payslips advance</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+        <field name="context">{'search_default_employee_id': [active_id],
+            'default_employee_id': active_id}
+        </field>
     </record>
     <record id="payroll_hr_employee_view_form" model="ir.ui.view">
         <field name="name">hr.employee.view.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
-        <!--<field eval="21" name="priority"/>-->
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//div[@name='button_box']" position="inside">
@@ -117,10 +125,23 @@
                             icon="fa-money"
                             type="action"
                             groups="hr.group_hr_user">
-                        <field name="advance_count" widget="statinfo" string="Advances"/>
+                        <field name="advance_count" widget="statinfo"
+                               string="Advances"/>
                     </button>
                 </xpath>
             </data>
         </field>
+    </record>
+
+    <report id="action_report_payslip_advance_receipt"
+            model="hr.payslip.advance"
+            string="Payslip Advance Receipt"
+            report_type="qweb-pdf"
+            name="hr_payroll_advance.payslip_advance_receipt"
+            file="hr_payroll_advance.payslip_advance_receipt"
+            print_report_name="'PaySlip Advance - %s' % object.name"/>
+    <record id="hr_payroll_advance.action_report_payslip_advance_receipt"
+            model="ir.actions.report">
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
     </record>
 </odoo>

@@ -4,11 +4,6 @@
 
 
 from odoo import models, fields, api, _
-from odoo.addons import decimal_precision as dp
-
-import logging
-
-_log = logging.getLogger(__name__)
 
 
 class HrPaySlipAdvance(models.Model):
@@ -52,7 +47,8 @@ class HrPaySlipAdvance(models.Model):
         default=fields.Date.today(),
         help="Date")
     amount = fields.Monetary(
-        string='Amount')
+        string='Amount',
+        currency_field='currency_id')
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         string='Currency',

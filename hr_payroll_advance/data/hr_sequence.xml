@@ -5,7 +5,7 @@
             <field name="name">PaySlip Advance Code</field>
             <field name="code">hr.payslip.advance</field>
             <field eval="4" name="padding"/>
-            <field name="prefix">adv/-</field>
+            <field name="prefix">adv/</field>
         </record>
     </data>
 </odoo>
