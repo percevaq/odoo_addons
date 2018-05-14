@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="ir_attachment_mimetype_view_form" model="ir.ui.view">
+        <field name="name">ir.attachment.mimetype.view.form</field>
+        <field name="model">ir.attachment.mimetype</field>
+        <field name="arch" type="xml">
+            <form string="Attachment MineType">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="mime_type"/>
+                            <field name="icon"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="ir_attachment_mimetype_view_tree" model="ir.ui.view">
+        <field name="name">ir.attachment.mimetype.view.tree</field>
+        <field name="model">ir.attachment.mimetype</field>
+        <field name="arch" type="xml">
+            <tree string="Document MineType">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="mime_type"/>
+                <field name="icon"/>
+            </tree>
+        </field>
+    </record>
+    <record id="ir_attachment_mimetype_action" model="ir.actions.act_window">
+        <field name="name">Attachment MimeType</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.attachment.mimetype</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add file extension for document system
+            </p>
+            <p>
+                Add file extension, icon relative url for visualization
+            </p>
+        </field>
+    </record>
+    <menuitem id="ir_attachment_mimetype_menu"
+              name="MimeTypes"
+              parent="base.next_id_9"
+              action="ir_attachment_mimetype_action"
+              sequence="21"/>
+
+    <record id="view_document_file_form" model="ir.ui.view">
+        <field name="name">ir.attachment</field>
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="base.view_attachment_form"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='url']" position="before">
+                <field name="file_type_icon"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_document_file_kanban" model="ir.ui.view">
+        <field name="name">ir.attachment kanban</field>
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="mail.view_document_file_kanban"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <field name="mimetype" position="before">
+                <field name="file_type_icon"/>
+            </field>
+            <xpath expr="//div[hasclass('oe_attachment')]" position="replace">
+                <div class="oe_attachment">
+                    <div class="oe_name">
+                        <field name="name"/>
+                    </div>
+                    <div t-if="record.type.raw_value == 'binary'">
+                        <a t-attf-href="/web/content/#{record.id.value}?download=1">
+                            <t t-set="webimage" t-value="new RegExp('image.*(gif|jpeg|jpg|png)').test(record.mimetype.value)"/>
+                            <div t-if="!webimage">
+                                <img t-att-src="'/document_icon/static/src/img/png/' + record.file_type_icon.value" height="64" width="64"/>
+                            </div>
+                            <div t-if="webimage" class="o_attachment_image">
+                                <img t-attf-src="/web/image/#{record.id.value}?download=1"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
